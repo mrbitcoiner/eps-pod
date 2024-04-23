@@ -1,0 +1,20 @@
+# Electrum Personal Server configuration file
+
+# Lines starting with # are called comments which are ignored.
+# For a line to have effect it must not start with #
+
+# The most important options are towards the top of the file
+
+[master-public-keys]
+# Add electrum wallet master public keys to this section
+# In electrum then go Wallet -> Information to get the mpk
+
+#any_name_works = xpub661MyMwAqRbcFseXCwRdRVkhVuzEiskg4QUp5XpUdNf2uGXvQmnD4zcofZ1MN6Fo8PjqQ5cemJQ39f7RTwDVVputHMFjPUn8VRp2pJQMgEF
+
+# Multiple master public keys may be added by simply adding another line
+#my_second_wallet = xpubanotherkey
+
+# Multisig wallets use format `required-signatures [list of master pub keys]`
+# this example is a 2-of-3 multisig wallet
+#multisig_wallet = 2 xpub661MyMwAqRbcFseXCwRdRVkhVuzEiskg4QUp5XpUdNf2uGXvQmnD4zcofZ1MN6Fo8PjqQ5cemJQ39f7RTwDVVputHMFjPUn8VRp2pJQMgEF xpub661MyMwAqRbcFseXCwRdRVkhVuzEiskg4QUp5XpUdNf2uGXvQmnD4zcofZ1MN6Fo8PjqQ5cemJQ39f7RTwDVVputHMFjPUn8VRp2pJQMgEF xpub661MyMwAqRbcFseXCwRdRVkhVuzEiskg4QUp5XpUdNf2uGXvQmnD4zcofZ1MN6Fo8PjqQ5cemJQ39f7RTwDVVputHMFjPUn8VRp2pJQMgEF
+
