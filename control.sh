@@ -48,6 +48,7 @@ up() {
 		--rm \
 		--env-file="${RELDIR}/.env" \
 		-v="${RELDIR}/data:/data" \
+		-p="${EPS_LISTEN_PORT}:${EPS_LISTEN_PORT}" \
 		--name="eps" \
 		"localhost/eps" &
 }
@@ -61,12 +62,18 @@ clean() {
 	[ "${v}" == "Y" ] || eprintln 'abort!'
 	rm -rf "${RELDIR}/data"
 }
+addresses() {
+	common
+	printf "IPV4: ${EPS_LISTEN_HOST}:${EPS_LISTEN_PORT}\n"
+	printf "Onion: $(cat ${RELDIR}/data/tor/eps/hostname):${EPS_LISTEN_PORT}\n"
+}
 ####################
 case ${1} in
 	build) build ;;
 	up) up ;;
 	down) down ;;
+	addresses) addresses ;;
 	rescan) rescan ;;
 	clean) clean ;;
-	*) eprintln 'usage: < build | up | down | rescan | clean | help >' ;;
+	*) eprintln 'usage: < build | up | down | addresses | rescan | clean | help >' ;;
 esac
